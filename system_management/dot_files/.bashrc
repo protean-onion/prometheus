@@ -119,3 +119,6 @@ fi
 # Customisations
 ### tex https://tug.org/texlive/quickinstall.html
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+
+### go https://go.dev/doc/install
+export PATH="$PATH:/usr/local/go/bin:/$HOME/go/bin"

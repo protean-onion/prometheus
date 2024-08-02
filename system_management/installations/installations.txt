@@ -1,2 +1,3 @@
 https://github.com/yoshimoto/i3-alt-tab.py
 https://github.com/sagb/alttab
+https://github.com/ciehanski/libgen-cli?tab=readme-ov-file

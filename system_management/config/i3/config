@@ -76,10 +76,10 @@ bindsym $mod+x focus right
 # Alt+Tab Window Switching:
 # Need to give permissions to the script
 ### Switch on all workspaces https://github.com/yoshimoto/i3-alt-tab.py
-set $i3_alt_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py next all
-set $i3_alt_shift_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py previous all
-bindsym $mod+Tab exec $i3_alt_tab_all
-bindsym $mod+Shift+Tab exec $i3_alt_shift_tab_all
+set $i3_mod_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py n all
+set $i3_mod_shift_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py p all
+bindsym $mod+Tab exec $i3_mod_tab_all
+bindsym $mod+Ctrl+Tab exec $i3_mod_shift_tab_all
 
 ### Switch on current workspace https://github.com/sagb/alttab?tab=readme-ov-file
 exec_always --no-startup-id alttab -frame "#ffffff"
