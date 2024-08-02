@@ -27,7 +27,7 @@ exec --no-startup-id dex --autostart --environment i3; sleep 1
 
 # Configure screens at startup.
 exec xrandr --output HDMI-1 --off
-# exec_always sh ~/.prometheus/system_management/scripts/screen/adjust_screen_size.sh; sleep 1
+exec_always sh ~/.prometheus/system_management/scripts/screen/adjust_screen_size.sh; sleep 1
 
 # Apply wallpaper
 exec sleep 3
@@ -35,7 +35,7 @@ exec --no-startup-id nitrogen --restore &
 
 # Customise windows
 # exec_always --no-startup-id compton -b --shadow-opacity=0.4 --no-fading-openclose -C --menu-opacity=1.0 --frame-opacity=1.0
-exec_always --no-startup-id compton -b --shadow-opacity=0.4 -C --menu-opacity=1.0 --frame-opacity=1.0
+exec_always --no-startup-id compton -b --shadow-opacity=0.9 -C --menu-opacity=1.0 --frame-opacity=1.0
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -68,12 +68,21 @@ bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-# Use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+bindsym $mod+z focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+x focus right
+
+# Alt+Tab Window Switching:
+# Need to give permissions to the script
+### Switch on all workspaces https://github.com/yoshimoto/i3-alt-tab.py
+set $i3_alt_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py next all
+set $i3_alt_shift_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py previous all
+bindsym $mod+Tab exec $i3_alt_tab_all
+bindsym $mod+Shift+Tab exec $i3_alt_shift_tab_all
+
+### Switch on current workspace https://github.com/sagb/alttab?tab=readme-ov-file
+exec_always --no-startup-id alttab -frame "#ffffff"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -272,6 +281,9 @@ client.placeholder 		#ffffff #ffffff #ffffff #ffffff #ffffff
 # Gaps
 gaps inner 2
 gaps outer 2
+
+### Try getting this to work on the new system. https://github.com/jbenden/i3-gaps-rounded?tab=readme-ov-file#rounded-window-corners
+# border_radius 5
 
 smart_gaps inverse_outer
 
