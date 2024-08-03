@@ -122,3 +122,7 @@ export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 ### go https://go.dev/doc/install
 export PATH="$PATH:/usr/local/go/bin:/$HOME/.go/bin"
+
+### authentication
+# env -S $(grep -v '^#' ~/.prometheus/system_management/dot_files/.authentication)
+source ~/.prometheus/system_management/dot_files/.authentication
