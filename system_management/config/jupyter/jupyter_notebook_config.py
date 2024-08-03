@@ -207,7 +207,7 @@ c = get_config()  # noqa
 #                        standard library module, which allows setting of the
 #                        BROWSER environment variable to override it.
 #  Default: ''
-c.NotebookApp.browser = 'surf'
+c.NotebookApp.browser = 'firefox'
 
 ## The full path to an SSL/TLS certificate file.
 #  Default: ''

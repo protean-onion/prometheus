@@ -7,9 +7,7 @@
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
 
-# Set $mod
 set $mod Mod4
 set $altmod Mod1
 
@@ -34,7 +32,6 @@ exec sleep 3
 exec --no-startup-id nitrogen --restore &
 
 # Customise windows
-# exec_always --no-startup-id compton -b --shadow-opacity=0.4 --no-fading-openclose -C --menu-opacity=1.0 --frame-opacity=1.0
 exec_always --no-startup-id compton -b --shadow-opacity=0.9 -C --menu-opacity=1.0 --frame-opacity=1.0
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -54,15 +51,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
 bindsym shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +100% && $refresh_i3status
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -100% && $refresh_i3status
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 
-bindsym $mod+shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 100% && $refresh_i3status
-bindsym $mod+shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 10% && $refresh_i3status
-
 # Use brightnessctl to adjust brightness
+### When setting up, change permissions for /sys/class/backlight/intel_backlight/{actual_brightness, brightness}
 bindsym Shift+XF86MonBrightnessUp exec brightnessctl set +1%
 bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
@@ -80,15 +73,11 @@ set $i3_mod_tab_all ~/.prometheus/system_management/scripts/window_management/i3
 set $i3_mod_shift_tab_all ~/.prometheus/system_management/scripts/window_management/i3-alt-tab.py p all
 bindsym $mod+Tab exec $i3_mod_tab_all
 bindsym $mod+Ctrl+Tab exec $i3_mod_shift_tab_all
-
 ### Switch on current workspace https://github.com/sagb/alttab?tab=readme-ov-file
 exec_always --no-startup-id alttab -frame "#ffffff"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# Start a terminal
-bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -97,17 +86,17 @@ bindsym $mod+Shift+q kill
 
 mode "Rofi" {
 
-		bindsym r exec "rofi -modi run -show run"
-		bindsym f exec "rofi -modi filebrowser -show filebrowser"
-		bindsym d exec "rofi -modi drun -show drun"
-		bindsym w exec "rofi -modi windowcd,window -show windowcd"
-		bindsym a exec "rofi -modi windowcd,window,run,drun,filebrowser -show drun"
+		bindsym r exec "rofi -modi run -show run"; mode "default"
+		bindsym f exec "rofi -modi filebrowser -show filebrowser"; mode "default"
+		bindsym d exec "rofi -modi drun -show drun"; mode "default"
+		bindsym w exec "rofi -modi windowcd,window -show windowcd"; mode "default"
+		bindsym a exec "rofi -modi windowcd,window,run,drun,filebrowser -show drun"; mode "default"
         
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
 
-# Move and resize window (you can also use the mouse for that)
+# Activate rofi
 bindsym $mod+r mode "Rofi"
 
 # Change focus
@@ -158,9 +147,9 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # Focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 # Focus the child container
-bindsym $mod+Shift+a focus child
+bindsym $mod+Shift+p focus child
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -173,19 +162,8 @@ bindsym $mod+shift+space focus mode_toggle
 
 # Move the currently focused window to the scratchpad
 bindsym $mod+shift+grave move scratchpad
-### With specific scratchpads assigned to different keybindings, this command doesn't make sense.
-### Perhaps remap it to cycle through specific instances of the focused scratchpad.
-# bindsym $mod+shift+grave for_window [] show scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+grave scratchpad show
-
-# Sticky toggle
-# bindsym $mod+shift+space sticky toggle
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -212,6 +190,21 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+mode "Applications" {
+
+		bindsym v workspace number 1; mode "default"
+		bindsym j workspace number 10; mode "default"
+		bindsym c workspace number 9; mode "default"
+		bindsym r workspace number 2; mode "default"
+		bindsym d workspace number 3; mode "default"
+        
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+# Activate Applications
+bindsym $mod+a mode "Applications"
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -228,12 +221,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+f reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Window information and borders
-# new_window pixel 3
-# new_float normal
 default_border pixel 1
 
 bindsym $mod+u border none
@@ -242,28 +231,6 @@ bindsym $mod+n border normal
 
 font xft:URWGothic-Book 11
 
-# Set shut down, restart and locking features
-# bindsym $mod+p mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-# mode "$mode_system" {
-#     bindsym l exec --no-startup-id i3exit lock, mode "default"
-#     bindsym s exec --no-startup-id i3exit suspend, mode "default"
-#     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-#     bindsym e exec --no-startup-id i3exit logout, mode "default"
-#     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-#     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-#     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-#     # exit system mode: "Enter" or "Escape"
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-# exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
-# exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcTursor
 exec_always --no-startup-id . "/home/$USER/.config/polybar/launch.sh"
 
 # Theme colors
@@ -404,9 +371,9 @@ bindsym $mod+Shift+c mode "Cursor"
 ###################
 
 # Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send 'Screen captured'
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send 'Window captured'
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send 'Area captured'
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send "$(date).png (Screen)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send "$(date).png (Window)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date).png" && exec notify-send "$(date).png (Area)"
 
 ###################
 
@@ -421,56 +388,10 @@ for_window [instance="scratchpad_alacritty"] resize set 1000 400
 for_window [instance="scratchpad_alacritty"] move scratchpad
 for_window [instance="scratchpad_alacritty"] border pixel 1
 
-for_window [instance="download_alacritty"] floating enable
-for_window [instance="download_alacritty"] resize set 1000 400
-for_window [instance="download_alacritty"] move scratchpad
-for_window [instance="download_alacritty"] border pixel 1
-
-for_window [instance="scratchpad_surf_browser"] floating enable
-for_window [instance="scratchpad_surf_browser"] resize set 1000 800
-for_window [instance="scratchpad_surf_browser"] move scratchpad
-for_window [instance="scratchpad_surf_browser"] border pixel 1
-
-for_window [instance="scratchpad_surf_chatgpt"] floating enable
-for_window [instance="scratchpad_surf_chatgpt"] resize set 800 800
-for_window [instance="scratchpad_surf_chatgpt"] move scratchpad
-for_window [instance="scratchpad_surf_chatgpt"] border pixel 1
-
-for_window [instance="scratchpad_surf_dictionary"] floating enable
-for_window [instance="scratchpad_surf_dictionary"] resize set 800 800
-for_window [instance="scratchpad_surf_dictionary"] move scratchpad
-for_window [instance="scratchpad_surf_dictionary"] border pixel 1
-
-for_window [instance="surf"] floating enable
-for_window [instance="surf"] resize set 1500 865
-for_window [instance="surf"] move 10 10
-for_window [instance="surf"] move scratchpad
-for_window [instance="surf"] border pixel 1
-
-for_window [instance="scratchpad_surf_libgen"] floating enable
-for_window [instance="scratchpad_surf_libgen"] resize set 800 800
-for_window [instance="scratchpad_surf_libgen"] move scratchpad
-for_window [instance="scratchpad_surf_libgen"] border pixel 1
-
 for_window [instance="spotify"] floating enable
 for_window [instance="spotify"] resize set 800 400
 for_window [instance="spotify"] move scratchpad
 for_window [instance="spotify"] border pixel 1
-
-for_window [instance="scratchpad_surf_translate"] floating enable
-for_window [instance="scratchpad_surf_translate"] resize set 800 400
-for_window [instance="scratchpad_surf_translate"] move scratchpad
-for_window [instance="scratchpad_surf_translate"] border pixel 1
-
-for_window [instance="scratchpad_surf_twitter"] floating enable
-for_window [instance="scratchpad_surf_twitter"] resize set 1200 800
-for_window [instance="scratchpad_surf_twitter"] move scratchpad
-for_window [instance="scratchpad_surf_twitter"] border pixel 1
-
-for_window [instance="scratchpad_surf_whatsapp"] floating enable
-for_window [instance="scratchpad_surf_whatsapp"] resize set 800 800
-for_window [instance="scratchpad_surf_whatsapp"] move scratchpad
-for_window [instance="scratchpad_surf_whatsapp"] border pixel 1
 
 for_window [instance="org.gnome.Nautilus"] floating enable
 for_window [instance="org.gnome.Nautilus"] resize set 800 800
@@ -483,45 +404,22 @@ for_window [instance="trilium notes"] move scratchpad
 for_window [instance="trilium notes"] border pixel 1
 
 bindsym $mod+Control+Return [instance="scratchpad_alacritty"] scratchpad show
-# bindsym $mod+Control+b [instance="scratchpad_surf_browser"] scratchpad show
-# bindsym $mod+Control+c [instance="scratchpad_surf_chatgpt"] scratchpad show
-# bindsym $mod+Control+d [instance="scratchpad_surf_dictionary"] scratchpad show
-bindsym $mod+Control+j [instance="surf"] scratchpad show
-# bindsym $mod+Control+l [instance="scratchpad_surf_libgen"] scratchpad show
 bindsym $mod+Control+s [instance="spotify"] scratchpad show
-# bindsym $mod+Control+p [instance="scratchpad_surf_translate"] scratchpad show
 bindsym $mod+Control+t [instance="trilium"] scratchpad show
-# bindsym $mod+Control+x [instance="scratchpad_surf_twitter"] scratchpad show
-# bindsym $mod+Control+w [instance="scratchpad_surf_whatsapp"] scratchpad show
 bindsym $mod+Control+n [instance="org.gnome.Nautilus"] scratchpad show
 
-# Assign key bindings to start scratchpad applications
+# Assign key bindings to start scratchpad applications and start applications in specific workspaces
 bindsym $mod+Control+shift+Return exec alacritty --class scratchpad_alacritty
-bindsym $mod+Control+shift+b exec scratchpad_surf_browser www.google.com
-# bindsym $mod+Control+shift+c exec scratchpad_surf_chatgpt https://chat.openai.com/chat
-# bindsym $mod+Control+shift+d exec scratchpad_surf_dictionary https://www.oxfordlearnersdictionaries.com/definition/english/dictionary
-bindsym $mod+Control+shift+j exec jupyter-lab
-# bindsym $mod+Control+shift+l exec scratchpad_surf_libgen libgen.is
+bindsym $mod+Control+shift+j exec jupyter-notebook
 bindsym $mod+Control+shift+s exec spotify
-# bindsym $mod+Control+shift+p exec scratchpad_surf_translate https://translate.google.co.in # p = Polyglot
 bindsym $mod+Control+shift+t exec "flatpak run com.github.zadam.trilium"
-# bindsym $mod+Control+shift+w exec scratchpad_surf_whatsapp https://web.whatsapp.com
-# bindsym $mod+Control+shift+x exec scratchpad_surf_twitter twitter.com # s = social media
-bindsym $mod+Control+shift+n exec nautilus -w
+bindsym $mod+Control+shift+n exec nautilus
 
 
 # Start scratchpad applications upon startup
-exec --no-startup-id alacritty --class scratchpad_alacritty
-# exec --no-startup-id scratchpad_surf_browser www.google.com
-# exec --no-startup-id scratchpad_surf_chatgpt https://chat.openai.com/chat
-# exec --no-startup-id scratchpad_surf_dictionary https://www.oxfordlearnersdictionaries.com/definition/english/dictionary
-exec --no-startup-id jupyter-lab
-# exec --no-startup-id scratchpad_surf_libgen libgen.is
+exec --no-startup-id alacritty --class scratchpad_alacritty 
 exec --no-startup-id spotify
-# exec --no-startup-id scratchpad_surf_translate https://translate.google.co.in # p = Polyglot
 exec --no-startup-id "flatpak run com.github.zadam.trilium"
-# exec --no-startup-id scratchpad_surf_twitter twitter.com
-# exec --no-startup-id scratchpad_surf_whatsapp https://web.whatsapp.com
 exec --no-startup-id nautilus
 
 ###############################################################
