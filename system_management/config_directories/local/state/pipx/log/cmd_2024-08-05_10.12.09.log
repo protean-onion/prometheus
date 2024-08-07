@@ -1,6 +1,0 @@
-    85.5ms (setup:858): 2024-08-05 10:12:09
-    85.6ms (setup:859): /usr/bin/pipx environment
-    85.6ms (setup:860): pipx version is 1.4.3
-    85.7ms (setup:861): Default python interpreter is '/usr/bin/python3'
-    85.7ms (mkdir:74): creating directory /home/protean_onion/.local/share/pipx/venvs
-    86.0ms (cli:932): pipx finished.
