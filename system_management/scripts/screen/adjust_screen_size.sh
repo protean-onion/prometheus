@@ -35,5 +35,5 @@ xrandr --newmode $NEW_RES $MODELINE
 xrandr --addmode eDP-1 $NEW_RES
 xrandr --output eDP-1 --fb $NEW_RES --panning $NEW_RES --pos 0x0 --mode $NEW_RES
 xrandr --output eDP-1 --fb $NEW_RES --pos 0x0 --mode $NEW_RES
-# xrandr --fb $NEW_RES --output eDP-1 --mode $ORIG_RES --transform 1,0,$X_DIFF,0,1,$Y_DIFF,0,0,1 --output HDMI2 --right-of eDP1 --mode 1366x768
+# xrandr --fb $NEW_RES --output eDP-1 --mode $ORIG_RES --transform 1,0,$X_DIFF,0,1,$Y_DIFF,0,0,1 --output HDMI-2 --mode 1280x720 --right-of eDP-1
 xrandr --fb $NEW_RES --output eDP-1 --mode $ORIG_RES --transform 1,0,$X_DIFF,0,1,$Y_DIFF,0,0,1

@@ -125,3 +125,14 @@ export PATH="$PATH:/usr/local/go/bin:/$HOME/.go/bin"
 
 ### authentication
 export $(grep -v '^#' ~/.prometheus/system_management/dot_files/.authentication | xargs)
+
+### activate python virtual environment
+### write a rofi script for switching between virtual environments
+# source ~/.prometheus/system_management/virtual_environments/data-science/bin/activate
+
+# created by `pipx` on 2024-08-05 03:28:09
+export PATH="$PATH:/home/protean_onion/.local/bin"
+
+# custom scripts in path
+export PYTHONPATH="$PYTHONPATH:/home/protean_onion/Projects/Personal/scripts/python"
+export PATH="/home/protean_onion/.prometheus/bin:$PATH"

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Tue%20Aug%20%206%2011:04:36%20AM%20IST%202024.png" added="2024-08-06T05:35:10.274132Z" modified="2024-08-06T05:35:10.303446Z" visited="2024-08-06T05:35:10.274134Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-06T05:35:10.303443Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Political%20Books.jpeg" added="2024-08-06T05:48:35.266669Z" modified="2024-08-06T05:48:35.517665Z" visited="2024-08-06T05:48:35.266671Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;gio open %u&apos;" modified="2024-08-06T05:48:35.517660Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Projects/Learning/Chartered%20Accountancy/Foundation%20%7C%20CPT/Law/Acts/The%20Indian%20Contract%20Act%201872.pdf" added="2024-08-07T04:54:14.836288Z" modified="2024-08-07T04:54:15.087231Z" visited="2024-08-07T04:54:14.836289Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;gio open %u&apos;" modified="2024-08-07T04:54:15.087228Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Wed%20Aug%20%207%2011:11:39%20AM%20IST%202024.png" added="2024-08-07T05:42:24.931830Z" modified="2024-08-07T05:42:24.965304Z" visited="2024-08-07T05:42:24.931831Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T05:42:24.965301Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Downloads/Installations/thinkorswim_installer.sh" added="2024-08-07T06:14:21.097645Z" modified="2024-08-07T06:14:21.348321Z" visited="2024-08-07T06:14:21.097645Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;gio open %u&apos;" modified="2024-08-07T06:14:21.348316Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Wallpapers/Recursively%20Emoting%20Sine%20Wave.jpeg" added="2024-08-07T06:17:11.599737Z" modified="2024-08-07T06:18:34.152255Z" visited="2024-08-07T06:17:11.599739Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T06:18:34.152253Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Wed%20Aug%20%207%2001:23:36%20PM%20IST%202024.png" added="2024-08-07T07:54:00.249157Z" modified="2024-08-07T07:54:00.292829Z" visited="2024-08-07T07:54:00.249159Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T07:54:00.292826Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Wed%20Aug%20%207%2001:41:07%20PM%20IST%202024.png" added="2024-08-07T08:11:27.978655Z" modified="2024-08-07T08:11:28.014491Z" visited="2024-08-07T08:11:27.978657Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T08:11:28.014488Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Wed%20Aug%20%207%2002:04:25%20PM%20IST%202024.png" added="2024-08-07T08:34:38.854923Z" modified="2024-08-07T08:34:38.890119Z" visited="2024-08-07T08:34:38.854926Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T08:34:38.890115Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Downloads/Installations/jre-8u421-linux-x64.tar.gz" added="2024-08-07T09:29:26.229044Z" modified="2024-08-07T09:29:26.478680Z" visited="2024-08-07T09:29:26.229046Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;gio open %u&apos;" modified="2024-08-07T09:29:26.478677Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/protean_onion/Pictures/Screenshots/Wed%20Aug%20%207%2003:28:47%20PM%20IST%202024.png" added="2024-08-07T09:59:11.792169Z" modified="2024-08-07T10:01:37.799503Z" visited="2024-08-07T09:59:11.792171Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2024-08-07T10:01:37.799500Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

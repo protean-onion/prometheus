@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<application-state>
+  <context id="">
+    <application id="nitrogen.desktop" score="4" last-seen="1722592077"/>
+    <application id="snap-store_snap-store.desktop" score="31" last-seen="1722598045"/>
+    <application id="org.gnome.Nautilus.desktop" score="15" last-seen="1722598039"/>
+    <application id="gnome-initial-setup.desktop" score="3" last-seen="1722579638"/>
+    <application id="firefox_firefox.desktop" score="1581" last-seen="1722599235"/>
+    <application id="org.gnome.Terminal.desktop" score="647" last-seen="1722621390"/>
+    <application id="code.desktop" score="84" last-seen="1722597788"/>
+    <application id="discord_discord.desktop" score="16" last-seen="1722598041"/>
+    <application id="steam_steam.desktop" score="5" last-seen="1722584673"/>
+    <application id="vivaldi-stable.desktop" score="64" last-seen="1722621824"/>
+    <application id="org.gnome.DiskUtility.desktop" score="6" last-seen="1722591455"/>
+    <application id="update-manager.desktop" score="0" last-seen="1722581570"/>
+    <application id="alacritty_alacritty.desktop" score="91" last-seen="1722621823"/>
+    <application id="apport-gtk.desktop" score="0" last-seen="1722592073"/>
+  </context>
+</application-state>

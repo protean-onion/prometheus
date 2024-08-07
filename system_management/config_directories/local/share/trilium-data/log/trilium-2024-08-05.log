@@ -1,0 +1,38 @@
+08:20:23.685 200 GET /api/notes/HOuFQjACLqJd/blob with 2986 bytes took 1ms
+08:20:23.735 JS Error: Uncaught error: Message: ResizeObserver loop limit exceeded, URL: http://127.0.0.1:37840/#root/hv1wIfxerjVv/oxnGddKx813c/pObAmjp6WWwL/5kQrT7dDuLrA?ntxId=pp14uf, Line: 0, Column: 0, Error object: null, Stack: null
+Stack: Error
+    at Object.T [as logError] (http://127.0.0.1:37840/assets/v0.63.7/app-dist/desktop.js:2:119144)
+    at Ei.window.onerror (http://127.0.0.1:37840/assets/v0.63.7/app-dist/desktop.js:2:667069)
+08:20:23.762 204 PUT /api/options with 0 bytes took 1ms
+08:20:30.260 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 2ms
+08:20:30.270 200 GET /api/notes/HOuFQjACLqJd/blob with 3097 bytes took 0ms
+08:20:31.270 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 2ms
+08:20:31.276 200 GET /api/notes/HOuFQjACLqJd/blob with 3170 bytes took 0ms
+08:20:34.296 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 2ms
+08:20:34.314 200 GET /api/notes/HOuFQjACLqJd/blob with 3097 bytes took 0ms
+08:20:35.333 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 3ms
+08:20:35.362 200 GET /api/notes/HOuFQjACLqJd/blob with 3102 bytes took 0ms
+08:20:36.353 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 2ms
+08:20:36.361 200 GET /api/notes/HOuFQjACLqJd/blob with 3082 bytes took 1ms
+08:22:11.707 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 1ms
+08:22:11.715 200 GET /api/notes/HOuFQjACLqJd/blob with 3097 bytes took 1ms
+08:22:12.741 204 PUT /api/notes/HOuFQjACLqJd/data with 0 bytes took 3ms
+08:22:12.756 200 GET /api/notes/HOuFQjACLqJd/blob with 3141 bytes took 1ms
+08:24:02.782 Optimizing database
+08:24:02.783 Optimization finished in 0ms.
+08:24:02.856 Table counts: notes: 1618, revisions: 28, attachments: 34, branches: 1633, attributes: 737, etapi_tokens: 0, blobs: 1101
+08:24:02.908 All consistency checks passed with no errors detected (took 53ms)
+08:34:47.338 Created new note '182OzwHy2z2Q', branch 'qf0iLk0OwW7a_182OzwHy2z2Q' of type 'text', mime 'text/html'
+08:34:47.340 200 GET /api/special-notes/inbox/2024-08-05 with 330 bytes took 7ms
+08:34:47.342 200 POST /api/tree/load with 4442 bytes took 1ms
+08:34:47.344 200 POST /api/tree/load with 4442 bytes took 0ms
+08:34:47.347 Created new note 'U3c5pRT0us1h', branch '182OzwHy2z2Q_U3c5pRT0us1h' of type 'text', mime 'text/html'
+08:34:47.348 200 POST /api/notes/182OzwHy2z2Q/children?target=into with 554 bytes took 3ms
+08:34:47.367 200 POST /api/tree/load with 4718 bytes took 1ms
+08:34:47.485 200 GET /api/notes/U3c5pRT0us1h/blob with 155 bytes took 0ms
+08:34:47.485 200 GET /api/note-map/U3c5pRT0us1h/backlink-count with 11 bytes took 0ms
+08:34:47.488 204 PUT /api/branches/root_Nn5mgszY2nIn/expanded/1 with 0 bytes took 0ms
+08:34:47.501 204 PUT /api/options with 0 bytes took 1ms
+08:34:47.504 204 PUT /api/branches/Nn5mgszY2nIn_4yLE5pYNPLpl/expanded/1 with 0 bytes took 0ms
+08:34:47.659 204 PUT /api/branches/4yLE5pYNPLpl_qf0iLk0OwW7a/expanded/1 with 0 bytes took 0ms
+08:34:47.668 204 PUT /api/branches/qf0iLk0OwW7a_182OzwHy2z2Q/expanded/1 with 0 bytes took 1ms

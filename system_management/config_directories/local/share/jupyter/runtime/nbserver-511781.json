@@ -1,0 +1,12 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "notebook_dir": "/home/protean_onion",
+  "password": false,
+  "pid": 511781,
+  "port": 8891,
+  "secure": false,
+  "sock": "",
+  "token": "56bfd222291f20b87e1a2fc030f2a23954409195c33454d5",
+  "url": "http://localhost:8891/"
+}
