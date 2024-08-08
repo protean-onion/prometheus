@@ -136,3 +136,7 @@ export PATH="$PATH:/home/protean_onion/.local/bin"
 # custom scripts in path
 export PYTHONPATH="$PYTHONPATH:/home/protean_onion/Projects/Personal/scripts/python"
 export PATH="/home/protean_onion/.prometheus/bin:$PATH"
+
+# aliases for flatpak apps
+alias trilium="flatpak run com.github.zadam.trilium"
+alias stremio="flatpak run com.stremio.Stremio"
