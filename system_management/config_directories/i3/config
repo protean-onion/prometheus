@@ -416,7 +416,7 @@ bindsym $mod+Control+t [instance="trilium"] scratchpad show
 bindsym $mod+Control+n [instance="org.gnome.Nautilus"] scratchpad show
 
 # Assign key bindings to start applications. Windows will be organised based on set parameters above.
-bindsym $mod+shift+Return exec alacritty
+bindsym $mod+Return exec alacritty
 bindsym $mod+Control+shift+Return exec alacritty --class scratchpad_alacritty
 bindsym $mod+Control+shift+j exec jupyter-notebook
 bindsym $mod+Control+shift+s exec spotify
