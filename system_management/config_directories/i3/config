@@ -63,15 +63,27 @@ bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-bindsym $mod+z focus left
+bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+x focus right
+bindsym $mod+i focus up
+bindsym $mod+l focus right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+l move right
+
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # Alt+Tab Window Switching:
 # Need to give permissions to the script
@@ -144,19 +156,26 @@ mode "Move and Resize" {
 # Move and resize window (you can also use the mouse for that)
 bindsym $mod+shift+m mode "Move and Resize"
 
-# Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-# Split in horizontal orientation
-bindsym $mod+h split h
-# Split in vertical orientation
-bindsym $mod+v split v
+mode "Container" {
+    # Layout modes
+	bindsym s layout stacking
+	bindsym w layout tabbed
+	bindsym e layout toggle split
 
-# Focus the parent container
-bindsym $mod+p focus parent
-# Focus the child container
-bindsym $mod+Shift+p focus child
+	# Split in horizontal orientation
+	bindsym h split h
+	# Split in vertical orientation
+	bindsym v split v
+
+	# Focus the parent container
+	bindsym p focus parent
+	# Focus the child container
+	bindsym Shift+p focus child
+
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+c mode "Container"
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

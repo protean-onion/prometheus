@@ -140,3 +140,4 @@ export PATH="/home/protean_onion/.prometheus/bin:$PATH"
 # aliases for flatpak apps
 alias trilium="flatpak run com.github.zadam.trilium"
 alias stremio="flatpak run com.stremio.Stremio"
+alias wezterm="flatpak run org.wezfurlong.wezterm"
