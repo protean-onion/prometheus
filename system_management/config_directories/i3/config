@@ -90,12 +90,15 @@ bindsym $mod+Shift+l move right
 # Alt+Tab Window Switching:
 # Need to give permissions to the script
 ### Switch on all workspaces https://github.com/yoshimoto/i3-alt-tab.py
-set $i3_mod_tab_all /home/protean-onion/Projects/code/public/installations/scripts/python/i3-alt-tab.py n all
-set $i3_mod_shift_tab_all /home/protean-onion/Projects/code/public/installations/scripts/python/i3-alt-tab.py p all
+set $i3_mod_tab_all /home/protean-onion/Projects/code/installations/i3-alt-tab.py n all
+set $i3_mod_shift_tab_all /home/protean-onion/Projects/code/installations/i3-alt-tab.py p all
 bindsym $mod+Tab exec $i3_mod_tab_all
 bindsym $mod+Shift+Tab exec $i3_mod_shift_tab_all
 ### Switch on current workspace https://github.com/sagb/alttab?tab=readme-ov-file
 exec_always --no-startup-id alttab -frame "#ffffff"
+
+# https://github.com/fondorg/i3wm-swipe-gesture-setup/tree/main
+exec_always libinput-gestures-setup start
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -165,13 +168,13 @@ bindsym $mod+m mode "Move and Resize"
 
 mode "Container Management" {
         # Change container layout (stacked, tabbed, toggle split)
-        bindsym s layout stacking
-        bindsym w layout tabbed
-        bindsym e layout toggle split
+        bindsym s layout stacking; mode "default"
+        bindsym w layout tabbed; mode "default"
+        bindsym e layout toggle split; mode "default"
         # Split in horizontal orientation
-        bindsym h split h
+        bindsym h split h; mode "default"
         # Split in vertical orientation
-        bindsym v split v
+        bindsym v split v; mode "default"
         
         # Focus the parent container
         bindsym p focus parent
@@ -223,15 +226,40 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 mode "Applications" {
-
-		bindsym c workspace number 9; mode "default"
+        
+		# Code
+		bindsym c workspace number 10; mode "default"
+		# Discord
 		bindsym d workspace number 4; mode "default"
-		bindsym f workspace number 1; mode "default"
-		bindsym j workspace number 10; mode "default"
+		# Docker (Environments)
+		bindsym e workspace number 11; mode "default"
+		# Gummi (LaTeX)
+		bindsym g workspace number 6; mode "default"
+		# Jupyter Notebook
+		bindsym j workspace number 9; mode "default"
+        # Large Language Models
+		bindsym l workspace number 7; mode "default"
+		# Manim
+		bindsym m workspace number 14; mode "default"
+        # Notes
+		bindsym n workspace number 1; mode "default"
+        # OBS
+		bindsym o workspace number 13; mode "default"
+		# Performance
+		bindsym p workspace number 12; mode "default"
+		# Reading
 		bindsym r workspace number 3; mode "default"
+		# Steam
 		bindsym s workspace number 5; mode "default"
+		# Terminal
 		bindsym t workspace number 8; mode "default"
+		# Vivaldi
 		bindsym v workspace number 2; mode "default"
+		# Workspace
+		bindsym w workspace number 100; mode "default"
+
+		# Yes, you can do this
+		bindsym z workspace number 100000; mode "default"
         
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
@@ -416,6 +444,11 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Scr
 
 ## Configure scratchpad windows
 
+for_window [instance="chat"] floating enable
+for_window [instance="chat"] resize set 1500 1000
+for_window [instance="chat"] move scratchpad
+for_window [instance="chat"] border pixel 1
+
 for_window [instance="scratchpad_alacritty"] floating enable
 for_window [instance="scratchpad_alacritty"] resize set 1000 400
 for_window [instance="scratchpad_alacritty"] move scratchpad
@@ -431,30 +464,40 @@ for_window [instance="org.gnome.Nautilus"] resize set 800 800
 for_window [instance="org.gnome.Nautilus"] move scratchpad
 for_window [instance="org.gnome.Nautilus"] border pixel 1
 
-for_window [instance="trilium notes"] floating enable
-for_window [instance="trilium notes"] resize set 1510 860
-for_window [instance="trilium notes"] move scratchpad
-for_window [instance="trilium notes"] border pixel 1
+# for_window [instance="trilium notes"] floating enable
+# for_window [instance="trilium notes"] resize set 1510 860
+# for_window [instance="trilium notes"] move scratchpad
+# for_window [instance="trilium notes"] border pixel 1
 
 bindsym $mod+Control+Return [instance="scratchpad_alacritty"] scratchpad show
+bindsym $mod+Control+c [instance="chat"] scratchpad show
 bindsym $mod+Control+s [instance="spotify"] scratchpad show
-bindsym $mod+Control+t [instance="trilium"] scratchpad show
+# bindsym $mod+Control+t [instance="trilium"] scratchpad show
 bindsym $mod+Control+n [instance="org.gnome.Nautilus"] scratchpad show
 
 # Assign key bindings to start applications. Windows will be organised based on set parameters above.
 bindsym $mod+Return exec alacritty
 bindsym $mod+Control+shift+Return exec alacritty --class scratchpad_alacritty
+bindsym $mod+Control+shift+c exec chat
 bindsym $mod+Control+shift+j exec jupyter-notebook
 bindsym $mod+Control+shift+s exec spotify
-bindsym $mod+Control+shift+t exec trilium
+# bindsym $mod+Control+shift+t exec trilium
 bindsym $mod+Control+shift+n exec nautilus
 
 
 # Start scratchpad applications upon startup
-exec --no-startup-id alacritty --class scratchpad_alacritty 
+exec --no-startup-id alacritty --class scratchpad_alacritty
+exec --no-startup-id chat
 exec --no-startup-id spotify
-exec --no-startup-id trilium
+# exec --no-startup-id trilium
 exec --no-startup-id nautilus
+
+###################
+
+###################
+exec_always --no-startup-id ollama serve
+
+###################
 
 ###############################################################
 

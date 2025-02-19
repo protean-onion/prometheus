@@ -120,19 +120,107 @@ fi
 ### tex https://tug.org/texlive/quickinstall.html
 
 ### authentication
-export $(grep -v '^#' ~/.prometheus/system_management/dot_files/.authenticate | xargs)
+export $(grep -v '^#' /home/protean-onion/.prometheus/system_management/dot_files/.authenticate | xargs)
 
 ### activate python virtual environment
 ### write a rofi script for switching between virtual environments
 
 # custom scripts in path
+# create symbolic links of files within every relevant directory in the current directory
+alias pool="bash /home/protean-onion/Projects/code/ars-wilding/utils/system-management/pool.sh"
+export POOL_PATHS="/home/protean-onion/Projects/code/ars-wilding/utils"
+export POOL_DIR="/home/protean-onion/.prometheus/system_management/pool"
+export POOL_TMP="/home/protean-onion/.prometheus/system_management/pool/tmp"
+### make personal scripts universally available
+PATH="$PATH:$POOL_DIR:$POOL_TMP"
 
-# alias for virutal environments
+# export directory variables and make command aliases for ease of access
+export CODE="/home/protean-onion/Projects/code"
+export ARS_WILDING="/home/protean-onion/Projects/code/ars-wilding"
+export REPOS="/home/protean-onion/Projects/code/ars-wilding/repos"
+
+alias ars-wilding="cd "$ARS_WILDING" && pwd"
+alias cd-code="cd $CODE && pwd"
+
+# export the directory variable for the directory you're currently working for ease of access
+export PROJECT_TMP=""
+
+# aliases for virtual environments
 alias hermes="source /home/protean-onion/.venvs/hermes/bin/activate"
+alias experimental="source /home/protean-onion/.venvs/experimental/bin/activate"
 
 # nvidia https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+export PATH=/usr/local/cuda-12.6/bin${PATH:+:${PATH}}
 
+# LaTeX
+export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
 
 # system76 hybrid graphics https://support.system76.com/articles/graphics-switch-pop/
-### pass command to run on dGPU
+### `hybrid` mode command to offload on dGPU
 alias nvidia_run="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+### `nvidia` mode: 
+### # Only works with `lightdm`. It's important to switch accordingly using `sudo dpkg-reconfigure `some binary for a display manager``
+### # But I think it's the Intel iGPU that's generating the screen tear. If you want to watch a movie, use this mode.
+alias movies="system76-power graphics nvidia; sudo dpkg-reconfigure lightdm"
+### # Revert to standard usage, or `hybrid` mode
+alias hybrid="system76-power graphics hybrid; sudo dpkg-reconfigure gdm3"
+
+# Created by `pipx` on 2024-08-28 12:32:16
+export PATH="$PATH:/home/protean-onion/.local/bin"
+. "$HOME/.cargo/env"
+
+# Fix brightness
+function brightness {
+    sudo chmod 777 /sys/devices/pci0000\:00/0000\:00\:02.0/drm/card1/card1-eDP-1/intel_backlight/brightness >/dev/null 2>&1
+} || {
+    sudo chmod 777 /sys/devices/pci0000\:00/0000\:00\:02.0/drm/card2/card2-eDP-1/intel_backlight/brightness >/dev/null 2>&1
+}
+
+# Some weird permissions issue
+alias chat="cd /home/protean-onion/Projects/code/community/llms/LibreChat & docker compose up -d"
+
+# Headaches for `manim`
+### Links:
+###   - https://www.linuxfromscratch.org/blfs/view/git/multimedia/libvdpau.html
+###   - https://www.linuxfromscratch.org/blfs/view/svn/x/xorg7.html
+### It started working, but I don't know if this is what fixed it. I guess I'll just let this be.
+export XORG_PREFIX="/usr"
+export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+
+# PS5 Controller Connection Alias
+export controller="E8:47:3A:59:D2:47"
+
+# DeepSeek scripts
+export PYTHONPATH="/home/protean-onion/Projects/code/community/ai/models/deepseek/Janus:$PYTHONPATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/protean-onion/Projects/code/installations/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/protean-onion/Projects/code/installations/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/protean-onion/Projects/code/installations/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/protean-onion/Projects/code/installations/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# node.js
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Homebrew
+### The things we do for family.
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";

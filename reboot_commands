@@ -1,5 +1,7 @@
 # Natural Scrolling
-sudo xinput set-prop "SYNA8022:00 06CB:CE67 Touchpad" "libinput Natural Scrolling Enabled"
+sudo xinput set-prop "SYNA8022:00 06CB:CE67 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # brightnessctl
-sudo chmod 777 /sys/class/backlight/intel_backlight/actual_brightness /sys/class/backlight/intel_backlight/brightness
+sudo chmod 777 /sys/devices/pci0000:00/0000:00:02.0/drm/card2/card2-eDP-1/intel_backlight/actual_brightness /sys/devices/pci0000:00/0000:00:02.0/drm/card2/card2-eDP-1/intel_backlight/brightness
+
+
