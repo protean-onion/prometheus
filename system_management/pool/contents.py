@@ -1,1 +1,0 @@
-/home/protean-onion/Projects/code/ars-wilding/utils/git/contents.py

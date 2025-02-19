@@ -1,1 +1,0 @@
-/home/protean-onion/Projects/code/ars-wilding/utils/code-inspection/condense.py
